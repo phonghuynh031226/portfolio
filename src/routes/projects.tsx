@@ -18,36 +18,36 @@ const projects = [
     tags: ["Next.js", "OpenAI", "Pinecone"],
     accent: "bg-pastel-blue",
   },
-  {
-    name: "noodle-tracker",
-    desc: "App đếm số gói mì sinh viên ăn trong tuần — kèm cảnh báo khi ăn quá... 7 gói.",
-    tags: ["React Native", "Supabase"],
-    accent: "bg-pastel-green",
-  },
-  {
-    name: "prompt-garden",
-    desc: "Vườn prompt cá nhân: lưu, tag, version control các prompt yêu thích. Git cho prompt, kiểu vậy.",
-    tags: ["Vue", "TypeScript"],
-    accent: "bg-pastel-beige",
-  },
-  {
-    name: "lofi-pomodoro",
-    desc: "Đồng hồ pomodoro với nhạc lo-fi & chú mèo pixel ngủ gật khi hết giờ.",
-    tags: ["Svelte", "CSS Art"],
-    accent: "bg-pastel-blue",
-  },
-  {
-    name: "intern-diary",
-    desc: "Blog tĩnh static-site dùng Markdown + Astro để ghi lại nhật ký thực tập.",
-    tags: ["Astro", "MDX"],
-    accent: "bg-pastel-green",
-  },
-  {
-    name: "discord-summary-bot",
-    desc: "Bot tóm tắt chat server cho người 'lười đọc 500 tin nhắn vừa rồi'.",
-    tags: ["Python", "discord.py", "LLM"],
-    accent: "bg-pastel-beige",
-  },
+  // {
+  //   name: "noodle-tracker",
+  //   desc: "App đếm số gói mì sinh viên ăn trong tuần — kèm cảnh báo khi ăn quá... 7 gói.",
+  //   tags: ["React Native", "Supabase"],
+  //   accent: "bg-pastel-green",
+  // },
+  // {
+  //   name: "prompt-garden",
+  //   desc: "Vườn prompt cá nhân: lưu, tag, version control các prompt yêu thích. Git cho prompt, kiểu vậy.",
+  //   tags: ["Vue", "TypeScript"],
+  //   accent: "bg-pastel-beige",
+  // },
+  // {
+  //   name: "lofi-pomodoro",
+  //   desc: "Đồng hồ pomodoro với nhạc lo-fi & chú mèo pixel ngủ gật khi hết giờ.",
+  //   tags: ["Svelte", "CSS Art"],
+  //   accent: "bg-pastel-blue",
+  // },
+  // {
+  //   name: "intern-diary",
+  //   desc: "Blog tĩnh static-site dùng Markdown + Astro để ghi lại nhật ký thực tập.",
+  //   tags: ["Astro", "MDX"],
+  //   accent: "bg-pastel-green",
+  // },
+  // {
+  //   name: "discord-summary-bot",
+  //   desc: "Bot tóm tắt chat server cho người 'lười đọc 500 tin nhắn vừa rồi'.",
+  //   tags: ["Python", "discord.py", "LLM"],
+  //   accent: "bg-pastel-beige",
+  // },
 ];
 
 function Projects() {
