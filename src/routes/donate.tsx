@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import qr from "@/assets/qr.png";
+import qr from "@/assets/donate.jpg";
 import { Coffee, Heart } from "lucide-react";
 
 export const Route = createFileRoute("/donate")({
@@ -27,12 +27,12 @@ function Donate() {
         <div className="paper-card p-5 bg-pastel-beige">
           <Coffee className="h-8 w-8 mx-auto" />
           <p className="font-mono mt-2">1 ly cà phê</p>
-          <p className="text-sm text-muted-foreground">~ 25.000đ</p>
+          <p className="text-sm text-muted-foreground">~ 10.000đ</p>
         </div>
         <div className="paper-card p-5 bg-pastel-green">
           <span className="text-3xl">🍜</span>
           <p className="font-mono mt-2">1 gói mì Hảo Hảo</p>
-          <p className="text-sm text-muted-foreground">~ 5.000đ</p>
+          <p className="text-sm text-muted-foreground">~ 3.000đ</p>
         </div>
       </div>
 
@@ -48,8 +48,8 @@ function Donate() {
         />
         <div className="font-mono text-sm space-y-1 text-center mx-auto">
           <p><span className="text-muted-foreground">Ngân hàng:</span> Vietcombank</p>
-          <p><span className="text-muted-foreground">Số TK:</span> 0123 456 789</p>
-          <p><span className="text-muted-foreground">Chủ TK:</span> HUYNH XUAN PHONG</p>
+          <p><span className="text-muted-foreground">Số TK:</span> 1051026253</p>
+          <p><span className="text-muted-foreground">Chủ TK:</span> HUYNH THANH PHONG</p>
           <p><span className="text-muted-foreground">Nội dung:</span> donate phonghuynh</p>
         </div>
       </div>
