@@ -27,22 +27,22 @@ function Contact() {
           <a href="mailto:phonghuynh031226@gmail.com" className="flex items-center gap-2 hover:text-primary">
             <Mail className="h-4 w-4" /> phonghuynh031226@gmail.com
           </a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
+          <a href="https://github.com/phonghuynh031226" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
             <Github className="h-4 w-4" /> github.com/phonghuynh031226
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
+          <a href="https://linkedin.com/in/phonghuynh031226" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
             <Linkedin className="h-4 w-4" /> linkedin.com/in/phonghuynh031226
           </a>
           {/* <a href="https://discord.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
             <MessageCircle className="h-4 w-4" /> discord: phonghuynh
           </a> */}
-          <a href="https://youtube.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
+          <a href="https://youtube.com/@RAYKIVN" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
             <Youtube className="h-4 w-4" /> youtube.com/@RAYKIVN
           </a>
-          <a href="https://tiktok.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
+          <a href="https://tiktok.com/@phonghuynh031226" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
             <Music2 className="h-4 w-4" /> tiktok.com/@phonghuynh031226
           </a>
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
+          <a href="https://facebook.com/phonghuynh031226" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
             <Facebook className="h-4 w-4" /> facebook.com/phonghuynh031226
           </a>
         </div>
