@@ -11,12 +11,47 @@ export const Route = createFileRoute("/resume")({
   component: Resume,
 });
 
+// const skills = {
+//   "Ngôn ngữ": ["TypeScript", "Python", "Java", "Go (đang học)"],
+//   "Frontend": ["React", "Next.js", "TailwindCSS", "Vue"],
+//   "Backend": ["Node.js", "FastAPI", "PostgreSQL", "Supabase"],
+//   "AI / ML": ["OpenAI API", "LangChain", "RAG", "Hugging Face"],
+//   "Khác": ["Git", "Docker", "Figma", "Pha cà phê ☕"],
+// };
 const skills = {
-  "Ngôn ngữ": ["TypeScript", "Python", "Java", "Go (đang học)"],
-  "Frontend": ["React", "Next.js", "TailwindCSS", "Vue"],
-  "Backend": ["Node.js", "FastAPI", "PostgreSQL", "Supabase"],
-  "AI / ML": ["OpenAI API", "LangChain", "RAG", "Hugging Face"],
-  "Khác": ["Git", "Docker", "Figma", "Pha cà phê ☕"],
+  "Ngôn ngữ": ["Java", "JavaScript", "HTML", "CSS", "PHP cơ bản"],
+
+  "Frontend": [
+    "Vue.js",
+    "Tailwind CSS",
+    "React.js (đang học)",
+  ],
+
+  "Backend & Database": [
+    "MySQL",
+    "SQL Server",
+    "MongoDB (đang học)",
+    "Spring Boot cơ bản",
+    "XAMPP",
+  ],
+
+  "Công cụ": [
+    "VS Code",
+    "NetBeans",
+    "Eclipse IDE",
+    "IntelliJ IDEA",
+    "Postman",
+    "GitHub",
+    "GitLab",
+    "Docker cơ bản",
+    "Figma",
+  ],
+
+  "Khác": [
+    "Git cơ bản",
+    "Tin học văn phòng cơ bản",
+    "Pha cà phê ☕",
+  ],
 };
 
 function Resume() {
