@@ -20,10 +20,13 @@ function Index() {
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
             Hi, mình là <span className="bg-pastel-green px-2 border-2 border-foreground rounded-md inline-block">phonghuynh</span> 👋
           </h1>
-          <p className="text-lg text-muted-foreground">
+          {/* <p className="text-lg text-muted-foreground">
             Sinh viên năm cuối ngành <strong className="text-foreground">phát triển phần mềm</strong>.
             Hướng nội một chút, nhưng cực kỳ tò mò với mọi thứ liên quan tới
             <strong className="text-foreground"> AI</strong>, code, và công nghệ mới.
+          </p> */}
+          <p className="text-lg text-muted-foreground">
+            Sinh viên ngành phát triển phần mềm, yêu thích AI, code và những công nghệ mới.
           </p>
           <blockquote className="paper-card p-4 bg-pastel-beige italic">
             “Cơ hội giống như bình minh. Nếu bạn chờ quá lâu, bạn sẽ bỏ lỡ nó.”
