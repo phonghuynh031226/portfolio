@@ -54,11 +54,15 @@ function Projects() {
   return (
     <div className="space-y-8">
       <header className="space-y-3">
-        <h1 className="text-4xl font-bold">Dự án &amp; thiết kế</h1>
-        <p className="text-muted-foreground max-w-2xl">
+        <h1 className="text-4xl font-bold">Dự án</h1>
+        {/* <p className="text-muted-foreground max-w-2xl">
           Một vài thứ mình đã build — có thứ chạy ngon, có thứ vẫn còn TODO.
           Tất cả đều dạy mình điều gì đó (kể cả khi điều đó là “đừng push lên main lúc 2h sáng”).
-        </p>
+        </p> */}
+        <p className="text-muted-foreground max-w-2xl">
+  Những dự án mình đã xây dựng trong quá trình học hỏi, thử nghiệm và phát triển kỹ năng —
+  từ các ý tưởng nhỏ cho tới những sản phẩm mình thật sự tâm huyết.
+</p>
       </header>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
