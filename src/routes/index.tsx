@@ -54,10 +54,15 @@ function Index() {
 
       <section className="paper-card p-6 md:p-8 bg-pastel-blue/40">
         <h2 className="text-2xl font-bold mb-2">Về mình</h2>
-        <p className="text-muted-foreground leading-relaxed">
+        {/* <p className="text-muted-foreground leading-relaxed">
           Mình bắt đầu code từ năm nhất, ban đầu chỉ vì... muốn làm bot Discord cho server bạn bè.
           Rồi vô tình lạc vào thế giới AI, từ đó đến giờ chưa thoát ra được 😄.
           Mình tin rằng AI không phải để thay thế dev, mà để giúp dev trở thành phiên bản tò mò hơn của chính mình.
+        </p> */}
+        <p className="text-muted-foreground leading-relaxed">
+          Mình bắt đầu với lập trình bằng việc mày mò những đoạn code có sẵn,
+          thử sửa, thử build lại và tìm hiểu cách mọi thứ hoạt động phía sau.
+          Từ những lần “vọc cho vui”, coding dần trở thành điều mình thật sự đam mê.
         </p>
       </section>
 
