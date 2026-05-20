@@ -20,30 +20,30 @@ function Contact() {
       <div className="space-y-5">
         <h1 className="text-4xl font-bold">Liên hệ</h1>
         <p className="text-muted-foreground">
-          Có ý tưởng hay, muốn rủ làm side project, hoặc chỉ đơn giản là chào hỏi —
-          cứ gửi tin nhắn nhé!
+          Nếu bạn có một ý tưởng hay, muốn build thứ gì đó cùng nhau, 
+          hoặc chỉ muốn nói lời chào — cứ nhắn cho mình nhé.
         </p>
         <div className="space-y-2 font-mono text-sm">
-          <a href="mailto:hello@phonghuynh.dev" className="flex items-center gap-2 hover:text-primary">
-            <Mail className="h-4 w-4" /> hello@phonghuynh.dev
+          <a href="mailto:phonghuynh031226@gmail.com" className="flex items-center gap-2 hover:text-primary">
+            <Mail className="h-4 w-4" /> phonghuynh031226@gmail.com
           </a>
           <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
-            <Github className="h-4 w-4" /> github.com/phonghuynh
+            <Github className="h-4 w-4" /> github.com/phonghuynh031226
           </a>
           <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
-            <Linkedin className="h-4 w-4" /> linkedin.com/in/phonghuynh
+            <Linkedin className="h-4 w-4" /> linkedin.com/in/phonghuynh031226
           </a>
-          <a href="https://discord.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
+          {/* <a href="https://discord.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
             <MessageCircle className="h-4 w-4" /> discord: phonghuynh
-          </a>
+          </a> */}
           <a href="https://youtube.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
-            <Youtube className="h-4 w-4" /> youtube.com/@phonghuynh
+            <Youtube className="h-4 w-4" /> youtube.com/@RAYKIVN
           </a>
           <a href="https://tiktok.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
-            <Music2 className="h-4 w-4" /> tiktok.com/@phonghuynh
+            <Music2 className="h-4 w-4" /> tiktok.com/@phonghuynh031226
           </a>
           <a href="https://facebook.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
-            <Facebook className="h-4 w-4" /> facebook.com/phonghuynh
+            <Facebook className="h-4 w-4" /> facebook.com/phonghuynh031226
           </a>
         </div>
       </div>
