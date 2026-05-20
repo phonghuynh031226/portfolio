@@ -67,10 +67,10 @@ export function SiteLayout() {
         <div className="max-w-6xl mx-auto px-4 py-6 flex flex-row items-center justify-between gap-3 text-xs md:text-sm font-mono">
           <p>© {new Date().getFullYear()} phonghuynh</p>
           <div className="flex items-center gap-3">
-            <a href="mailto:hello@phonghuynh.dev" aria-label="Email" className="hover:text-primary">
+            <a href="mailto:phonghuynh031226@gmail.com" aria-label="Email" className="hover:text-primary">
               <Mail className="h-4 w-4" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-primary">
+            <a href="https://github.com/phonghuynh031226" target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-primary">
               <Github className="h-4 w-4" />
             </a>
           </div>
