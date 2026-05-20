@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import avatar from "@/assets/avatar.png";
+import avatar from "@/assets/avt.jpg";
 import { Code2, BrainCircuit, Coffee } from "lucide-react";
 
 export const Route = createFileRoute("/")({
