@@ -31,7 +31,7 @@ const skills = {
     "MySQL",
     "SQL Server",
     "MongoDB (đang học)",
-    "Spring Boot cơ bản",
+    "Spring Boot",
     "XAMPP",
   ],
 
