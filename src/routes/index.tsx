@@ -48,7 +48,7 @@ function Index() {
             height={768}
             className="w-full h-auto rounded-md"
           />
-          <p className="font-mono text-xs text-center pt-2">avatar.png</p>
+          {/* <p className="font-mono text-xs text-center pt-2">avatar.png</p> */}
         </div>
       </section>
 
