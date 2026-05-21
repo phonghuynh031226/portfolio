@@ -22,23 +22,7 @@ type GithubRepo = {
   language: string | null;
   fork: boolean;
 };
-function Projects() {
-  const [projects, setProjects] = useState<GithubRepo[]>([]);
 
-  useEffect(() => {
-    fetch("https://api.github.com/users/phonghuynh031226/repos?sort=updated")
-      .then((res) => res.json())
-      .then((data) => {
-        const repos = data.filter((repo: GithubRepo) => !repo.fork);
-        setProjects(repos);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
-  return (
-    // giữ return cũ của bạn
-  );
-}
 // const projects = [
 //   {
 //     name: "ai-study-buddy",
@@ -79,6 +63,20 @@ function Projects() {
 // ];
 
 function Projects() {
+
+  const [projects, setProjects] = useState<GithubRepo[]>([]);
+
+  useEffect(() => {
+    fetch("https://api.github.com/users/phonghuynh031226/repos?sort=updated")
+      .then((res) => res.json())
+      .then((data) => {
+        const repos = data.filter((repo: GithubRepo) => !repo.fork);
+        setProjects(repos);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+
   return (
     <div className="space-y-8">
       <header className="space-y-3">
