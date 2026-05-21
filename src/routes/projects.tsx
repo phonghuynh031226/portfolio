@@ -64,7 +64,7 @@ function Projects() {
       <header className="space-y-3">
         <h1 className="text-4xl font-bold">Dự án</h1>
         <p className="text-muted-foreground max-w-2xl">
-          Những dự án mình đã xây dựng trong quá trình học hỏi, thử nghiệm và phát triển kỹ năng —
+          Những dự án mình đã xây dựng trong quá trình học hỏi, thử nghiệm và phát triển kỹ năng của bản thân —
           từ các ý tưởng nhỏ cho tới những sản phẩm mình thật sự tâm huyết.
         </p>
       </header>
