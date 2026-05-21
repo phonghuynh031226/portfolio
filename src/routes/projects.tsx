@@ -6,10 +6,7 @@ export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Dự án — phonghuynh" },
-      {
-        name: "description",
-        content: "Bộ sưu tập dự án cá nhân & GitHub của phonghuynh.",
-      },
+      { name: "description", content: "Bộ sưu tập dự án cá nhân & GitHub của phonghuynh." },
     ],
   }),
   component: Projects,
@@ -23,54 +20,52 @@ type GithubRepo = {
   homepage: string | null;
   language: string | null;
   fork: boolean;
+  stargazers_count: number;
+  languages_url: string;
   tags?: string[];
 };
 
-function getTags(name: string, language: string | null) {
-  const map: Record<string, string[]> = {
-    portfolio: ["React", "TypeScript", "TailwindCSS"],
-    "ai-chatbot": ["Python", "OpenAI", "FastAPI"],
-    "java-web": ["Java", "Spring Boot", "MySQL"],
-    "vue-dashboard": ["VueJS", "TailwindCSS", "Laravel"],
-  };
+const accents = ["bg-pastel-blue", "bg-pastel-green", "bg-pastel-beige"];
 
-  return map[name] || [language || "Code"];
+async function getLanguages(url: string) {
+  const res = await fetch(url);
+  const data = await res.json();
+
+  return Object.keys(data).slice(0, 4);
 }
 
 function Projects() {
   const [projects, setProjects] = useState<GithubRepo[]>([]);
 
-  const accents = [
-    "bg-pastel-blue",
-    "bg-pastel-green",
-    "bg-pastel-beige",
-  ];
-
   useEffect(() => {
-    fetch("https://api.github.com/users/phonghuynh031226/repos?sort=updated")
-      .then((res) => res.json())
-      .then((data) => {
-        const repos = data
-          .filter((repo: GithubRepo) => !repo.fork)
-          .map((repo: GithubRepo) => ({
-            ...repo,
-            tags: getTags(repo.name, repo.language),
-          }));
+    async function loadRepos() {
+      const res = await fetch("https://api.github.com/users/phonghuynh031226/repos?per_page=100");
+      const data: GithubRepo[] = await res.json();
 
-        setProjects(repos);
-      })
-      .catch((err) => console.error(err));
+      const repos = data
+        .filter((repo) => !repo.fork)
+        .sort((a, b) => b.stargazers_count - a.stargazers_count);
+
+      const reposWithLanguages = await Promise.all(
+        repos.map(async (repo) => ({
+          ...repo,
+          tags: await getLanguages(repo.languages_url),
+        }))
+      );
+
+      setProjects(reposWithLanguages);
+    }
+
+    loadRepos().catch(console.error);
   }, []);
 
   return (
     <div className="space-y-8">
       <header className="space-y-3">
         <h1 className="text-4xl font-bold">Dự án</h1>
-
         <p className="text-muted-foreground max-w-2xl">
-          Những dự án mình đã xây dựng trong quá trình học hỏi, thử nghiệm và
-          phát triển kỹ năng — từ các ý tưởng nhỏ cho tới những sản phẩm mình
-          thật sự tâm huyết.
+          Những dự án mình đã xây dựng trong quá trình học hỏi, thử nghiệm và phát triển kỹ năng —
+          từ các ý tưởng nhỏ cho tới những sản phẩm mình thật sự tâm huyết.
         </p>
       </header>
 
@@ -78,14 +73,10 @@ function Projects() {
         {projects.map((p, index) => (
           <article
             key={p.id}
-            className={`paper-card p-5 ${
-              accents[index % accents.length]
-            }`}
+            className={`paper-card p-5 ${accents[index % accents.length]}`}
           >
             <div className="flex items-center justify-between">
-              <h3 className="font-mono font-bold text-lg">
-                {p.name}
-              </h3>
+              <h3 className="font-mono font-bold text-lg">{p.name}</h3>
 
               <a
                 href={p.html_url}
@@ -103,7 +94,7 @@ function Projects() {
             </p>
 
             <div className="flex flex-wrap gap-1.5 mt-4">
-              {p.tags?.map((tag) => (
+              {(p.tags?.length ? p.tags : [p.language || "Code"]).map((tag) => (
                 <span
                   key={tag}
                   className="font-mono text-[11px] px-2 py-0.5 bg-background border border-foreground rounded"
