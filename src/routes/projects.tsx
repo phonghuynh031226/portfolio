@@ -92,32 +92,7 @@ function Projects() {
       </header>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        /* {projects.map((p) => (
-          <article key={p.name} className={`paper-card p-5 ${p.accent}`}>
-            <div className="flex items-center justify-between">
-              <h3 className="font-mono font-bold text-lg">{p.name}</h3>
-              <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:opacity-70">
-                <Github className="h-4 w-4" />
-              </a>
-            </div>
-            <p className="text-sm mt-3 leading-relaxed">{p.desc}</p>
-            <div className="flex flex-wrap gap-1.5 mt-4">
-              {p.tags.map((t) => (
-                <span key={t} className="font-mono text-[11px] px-2 py-0.5 bg-background border border-foreground rounded">
-                  {t}
-                </span>
-              ))}
-            </div>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-mono mt-4 hover:underline"
-            >
-              xem chi tiết <ExternalLink className="h-3 w-3" />
-            </a>
-          </article>
-        ))} */
+
 {projects.map((p) => (
   <article key={p.id} className="paper-card p-5 bg-pastel-blue">
     <div className="flex items-center justify-between">
