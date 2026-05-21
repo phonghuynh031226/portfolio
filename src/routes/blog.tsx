@@ -13,42 +13,42 @@ export const Route = createFileRoute("/blog")({
 });
 
 const news = [
-  {
-    title: "GPT-5 vừa ra mắt — có gì mới cho sinh viên?",
-    date: "15/05/2026",
-    summary: "Mình thử pass GPT-5 đề thi cuối kỳ giả lập, kết quả khá... bất ngờ. Tin này ảnh hưởng gì đến tụi mình?",
-    tag: "Phân tích",
-  },
-  {
-    title: "Tin đồn: Google sắp đóng Gemini API miễn phí?",
-    date: "10/05/2026",
-    summary: "Spoiler: chưa đâu. Mình check 3 nguồn chính thức để giúp bạn không hoang mang.",
-    tag: "Fact-check",
-  },
-  {
-    title: "AI agent đầu tiên tự đặt vé máy bay thành công",
-    date: "02/05/2026",
-    summary: "Một bước nhỏ cho AI, một bước lớn cho ... tụi sinh viên lười.",
-    tag: "Tin nhanh",
-  },
+  // {
+  //   title: "GPT-5 vừa ra mắt — có gì mới cho sinh viên?",
+  //   date: "15/05/2026",
+  //   summary: "Mình thử pass GPT-5 đề thi cuối kỳ giả lập, kết quả khá... bất ngờ. Tin này ảnh hưởng gì đến tụi mình?",
+  //   tag: "Phân tích",
+  // },
+  // {
+  //   title: "Tin đồn: Google sắp đóng Gemini API miễn phí?",
+  //   date: "10/05/2026",
+  //   summary: "Spoiler: chưa đâu. Mình check 3 nguồn chính thức để giúp bạn không hoang mang.",
+  //   tag: "Fact-check",
+  // },
+  // {
+  //   title: "AI agent đầu tiên tự đặt vé máy bay thành công",
+  //   date: "02/05/2026",
+  //   summary: "Một bước nhỏ cho AI, một bước lớn cho ... tụi sinh viên lười.",
+  //   tag: "Tin nhanh",
+  // },
 ];
 
 const stories = [
-  {
-    title: "Lần đầu dùng Copilot: từ 'sao nó biết' tới 'sao nó sai'",
-    date: "20/04/2026",
-    summary: "Mình từng nghĩ Copilot là phép màu. Sau 3 bug nó tự tin tạo ra... mình hiểu nó là đồng nghiệp, không phải thần thánh.",
-  },
-  {
-    title: "Hành trình từ 'Hello World' đến deploy thật",
-    date: "12/03/2026",
-    summary: "Spoiler: có khóc một lần vì quên push key lên GitHub public. Đừng lặp lại sai lầm của mình 🙏.",
-  },
-  {
-    title: "Một ngày làm việc cùng 4 con AI khác nhau",
-    date: "28/02/2026",
-    summary: "ChatGPT, Claude, Gemini và Cursor cãi nhau xem ai viết code đẹp hơn. Mình chỉ ngồi ăn mì.",
-  },
+  // {
+  //   title: "Lần đầu dùng Copilot: từ 'sao nó biết' tới 'sao nó sai'",
+  //   date: "20/04/2026",
+  //   summary: "Mình từng nghĩ Copilot là phép màu. Sau 3 bug nó tự tin tạo ra... mình hiểu nó là đồng nghiệp, không phải thần thánh.",
+  // },
+  // {
+  //   title: "Hành trình từ 'Hello World' đến deploy thật",
+  //   date: "12/03/2026",
+  //   summary: "Spoiler: có khóc một lần vì quên push key lên GitHub public. Đừng lặp lại sai lầm của mình 🙏.",
+  // },
+  // {
+  //   title: "Một ngày làm việc cùng 4 con AI khác nhau",
+  //   date: "28/02/2026",
+  //   summary: "ChatGPT, Claude, Gemini và Cursor cãi nhau xem ai viết code đẹp hơn. Mình chỉ ngồi ăn mì.",
+  // },
 ];
 
 function Blog() {
