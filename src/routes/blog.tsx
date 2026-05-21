@@ -59,9 +59,10 @@ function Blog() {
     <div className="space-y-8">
       <header className="space-y-3">
         <h1 className="text-4xl font-bold">Blog &amp; trải nghiệm</h1>
-        <p className="text-muted-foreground max-w-2xl">
-          Nơi mình ghi lại những gì đang đọc, đang thử và đang… loay hoay.
-        </p>
+      <p className="text-muted-foreground max-w-2xl">
+        Một góc nhỏ để mình lưu lại những điều đang học, những công nghệ đang khám phá
+        và hành trình không ngừng phát triển bản thân mỗi ngày.
+      </p>
       </header>
 
       <div className="flex gap-2">
@@ -88,7 +89,7 @@ function Blog() {
             </div>
             <h3 className="font-bold text-lg mt-2">{item.title}</h3>
             <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{item.summary}</p>
-            <button className="mt-4 text-xs font-mono hover:underline">đọc tiếp →</button>
+            {/* <button className="mt-4 text-xs font-mono hover:underline">đọc tiếp →</button> */}
           </article>
         ))}
       </div>
