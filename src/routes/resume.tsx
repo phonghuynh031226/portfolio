@@ -68,11 +68,11 @@ function Resume() {
           <h2 className="text-xl font-bold">Học vấn</h2>
         </div>
         <div className="space-y-4">
-          <div>
+          {/* <div>
             <h3 className="font-mono font-semibold">Cao đẵng FPT Polytechnic — Phát triển phần mềm</h3>
             <p className="text-sm text-muted-foreground">08/2024 — 08/2026 (dự kiến)</p>
             <p className="text-sm mt-1">GPA: 3.2 / 4.0</p>
-          </div>
+          </div> */}
         </div>
       </section>
 
