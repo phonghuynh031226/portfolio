@@ -39,12 +39,12 @@ function Contact() {
           <a href="https://youtube.com/@RAYKIVN" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
             <Youtube className="h-4 w-4" /> youtube.com/@RAYKIVN
           </a>
-          <a href="https://tiktok.com/@phonghuynh031226" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
+          {/* <a href="https://tiktok.com/@phonghuynh031226" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
             <Music2 className="h-4 w-4" /> tiktok.com/@phonghuynh031226
           </a>
           <a href="https://facebook.com/phonghuynh031226" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary">
             <Facebook className="h-4 w-4" /> facebook.com/phonghuynh031226
-          </a>
+          </a> */}
         </div>
       </div>
 
