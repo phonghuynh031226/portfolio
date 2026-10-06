@@ -23,16 +23,20 @@ function Donate() {
         </p>
       </header>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div className="paper-card p-5 bg-pastel-beige">
-          <Coffee className="h-8 w-8 mx-auto" />
-          <p className="font-mono mt-2">1 ly cà phê</p>
-          <p className="text-sm text-muted-foreground">~ 10.000đ</p>
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+        <div className="paper-card aspect-square sm:aspect-auto flex flex-col items-center justify-center p-3 sm:py-6 sm:px-5 bg-pastel-beige text-center">
+          <div className="h-8 flex items-center justify-center">
+            <Coffee className="h-7 w-7 sm:h-8 sm:w-8" />
+          </div>
+          <p className="font-mono text-sm sm:text-base font-medium mt-2 leading-snug">1 ly cà phê</p>
+          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">~ 10.000đ</p>
         </div>
-        <div className="paper-card p-5 bg-pastel-green">
-          <span className="text-3xl">🍜</span>
-          <p className="font-mono mt-2">1 gói mì Hảo Hảo</p>
-          <p className="text-sm text-muted-foreground">~ 3.000đ</p>
+        <div className="paper-card aspect-square sm:aspect-auto flex flex-col items-center justify-center p-3 sm:py-6 sm:px-5 bg-pastel-green text-center">
+          <div className="h-8 flex items-center justify-center">
+            <span className="text-2xl sm:text-3xl leading-none">🍜</span>
+          </div>
+          <p className="font-mono text-sm sm:text-base font-medium mt-2 leading-snug">1 gói mì Hảo Hảo</p>
+          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">~ 3.000đ</p>
         </div>
       </div>
 

@@ -6,7 +6,6 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "phonghuynh — Xin chào 👋" },
-      { name: "description", content: "Mình là phonghuynh, sinh viên năm cuối ngành phát triển phần mềm, đang say mê khám phá AI." },
     ],
   }),
   component: Index,
