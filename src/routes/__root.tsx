@@ -14,13 +14,13 @@ import { SiteLayout } from "@/components/SiteLayout";
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center paper-card p-8">
-        <h1 className="text-6xl font-bold">404</h1>
-        <h2 className="mt-4 text-xl font-semibold">Lạc đường rồi 🥲</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+      <div className="max-w-md text-center paper-card p-8 animate-scale-in">
+        <h1 className="text-6xl font-bold animate-bounce-subtle">404</h1>
+        <h2 className="mt-4 text-xl font-semibold animate-fade-in-up delay-150">Lạc đường rồi 🥲</h2>
+        <p className="mt-2 text-sm text-muted-foreground animate-fade-in-up delay-250">
           Trang này hình như chưa được code, hoặc bị AI ăn mất.
         </p>
-        <div className="mt-6">
+        <div className="mt-6 animate-fade-in-up delay-400">
           <Link to="/" className="chip bg-pastel-green">→ về trang chủ</Link>
         </div>
       </div>
@@ -33,10 +33,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center paper-card p-8">
-        <h1 className="text-xl font-semibold">Trang này không tải được</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Thử lại nhé!</p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+      <div className="max-w-md text-center paper-card p-8 animate-scale-in">
+        <h1 className="text-xl font-semibold animate-fade-in-up">Trang này không tải được</h1>
+        <p className="mt-2 text-sm text-muted-foreground animate-fade-in-up delay-100">Thử lại nhé!</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2 animate-fade-in-up delay-200">
           <button
             onClick={() => { router.invalidate(); reset(); }}
             className="chip bg-pastel-blue"
