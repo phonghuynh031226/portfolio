@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Newspaper, Smile } from "lucide-react";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -22,15 +23,15 @@ function Blog() {
 
   const headerRef = useScrollReveal();
   const gridRef   = useStaggerReveal<HTMLDivElement>(0.08, 90);
+  const { t } = useLanguage();
 
   return (
     <div className="space-y-8">
 
       <header ref={headerRef} className="space-y-3 reveal-on-scroll">
-        <h1 className="text-4xl font-bold">Blog &amp; trải nghiệm</h1>
+        <h1 className="text-4xl font-bold">{t("blog.title")}</h1>
         <p className="text-muted-foreground max-w-2xl">
-          Một góc nhỏ để mình lưu lại những điều đang học, những công nghệ đang khám phá
-          và hành trình không ngừng phát triển bản thân mỗi ngày.
+          {t("blog.desc")}
         </p>
       </header>
 
@@ -42,7 +43,7 @@ function Blog() {
             tab === "news" ? "bg-pastel-green scale-105" : "bg-card"
           }`}
         >
-          <Newspaper className="h-3 w-3" /> News công nghệ
+          <Newspaper className="h-3 w-3" /> {t("blog.tab_news")}
         </button>
         <button
           onClick={() => setTab("stories")}
@@ -50,7 +51,7 @@ function Blog() {
             tab === "stories" ? "bg-pastel-blue scale-105" : "bg-card"
           }`}
         >
-          <Smile className="h-3 w-3" /> Trải nghiệm
+          <Smile className="h-3 w-3" /> {t("blog.tab_stories")}
         </button>
       </div>
 
@@ -59,7 +60,7 @@ function Blog() {
         <div className="paper-card p-12 bg-pastel-beige text-center animate-scale-in">
           <p className="text-4xl mb-3 animate-bounce-subtle inline-block">✍️</p>
           <p className="font-mono text-muted-foreground">
-            Chưa có bài viết nào... mình đang viết!
+            {t("blog.empty_text")}
           </p>
         </div>
       )}

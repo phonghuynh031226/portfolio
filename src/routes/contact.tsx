@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, Github, Linkedin, Send, Youtube, Facebook } from "lucide-react";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -45,6 +46,7 @@ function Contact() {
   const infoRef  = useScrollReveal<HTMLDivElement>();
   const linksRef = useStaggerReveal<HTMLDivElement>(0.1, 80);
   const formRef  = useScrollReveal<HTMLFormElement>();
+  const { t } = useLanguage();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -61,10 +63,9 @@ function Contact() {
 
       {/* ── Left: info ── */}
       <div ref={infoRef} className="space-y-5 reveal-on-scroll">
-        <h1 className="text-4xl font-bold animate-fade-in-up delay-0">Liên hệ</h1>
+        <h1 className="text-4xl font-bold animate-fade-in-up delay-0">{t("contact.title")}</h1>
         <p className="text-muted-foreground animate-fade-in-up delay-100">
-          Nếu bạn có một ý tưởng hay, muốn build thứ gì đó cùng nhau,
-          hoặc chỉ muốn nói lời chào — cứ nhắn cho mình nhé.
+          {t("contact.desc")}
         </p>
 
         {/* Social links — stagger reveal */}
@@ -92,7 +93,7 @@ function Contact() {
         style={{ transitionDelay: "120ms" }}
       >
         <div className="animate-fade-in-up delay-100">
-          <label className="font-mono text-xs">tên_của_bạn</label>
+          <label className="font-mono text-xs">{t("contact.name_label")}</label>
           <input
             required
             type="text"
@@ -102,7 +103,7 @@ function Contact() {
         </div>
 
         <div className="animate-fade-in-up delay-200">
-          <label className="font-mono text-xs">email</label>
+          <label className="font-mono text-xs">{t("contact.email_label")}</label>
           <input
             required
             type="email"
@@ -112,12 +113,12 @@ function Contact() {
         </div>
 
         <div className="animate-fade-in-up delay-300">
-          <label className="font-mono text-xs">lời_nhắn</label>
+          <label className="font-mono text-xs">{t("contact.message_label")}</label>
           <textarea
             required
             rows={5}
             className="input-animated w-full mt-1 px-3 py-2 rounded-md border-2 border-foreground bg-background"
-            placeholder="Xin chào phong, mình muốn..."
+            placeholder={t("contact.message_placeholder")}
           />
         </div>
 
@@ -133,21 +134,21 @@ function Contact() {
           {sending ? (
             <>
               <span className="h-3 w-3 border-2 border-foreground border-t-transparent rounded-full animate-spin-slow" />
-              Đang gửi...
+              {t("contact.btn_sending")}
             </>
           ) : sent ? (
-            <>✅ Đã gửi!</>
+            <>{t("contact.btn_sent")}</>
           ) : (
             <>
               <Send className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" />
-              Gửi tin nhắn
+              {t("contact.btn_send")}
             </>
           )}
         </button>
 
         {sent && (
           <p className="text-sm font-mono text-center animate-scale-in">
-            💌 Mình sẽ reply sớm nhé!
+            {t("contact.reply_soon")}
           </p>
         )}
       </form>

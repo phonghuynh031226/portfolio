@@ -13,16 +13,17 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 
 function NotFoundComponent() {
+  const { t } = useLanguage();
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center paper-card p-8 animate-scale-in">
-        <h1 className="text-6xl font-bold animate-bounce-subtle">404</h1>
-        <h2 className="mt-4 text-xl font-semibold animate-fade-in-up delay-150">Lạc đường rồi 🥲</h2>
+        <h1 className="text-6xl font-bold animate-bounce-subtle">{t("notFound.title")}</h1>
+        <h2 className="mt-4 text-xl font-semibold animate-fade-in-up delay-150">{t("notFound.subTitle")}</h2>
         <p className="mt-2 text-sm text-muted-foreground animate-fade-in-up delay-250">
-          Trang này hình như chưa được code, hoặc bị AI ăn mất.
+          {t("notFound.desc")}
         </p>
         <div className="mt-6 animate-fade-in-up delay-400">
-          <Link to="/" className="chip bg-pastel-green">→ về trang chủ</Link>
+          <Link to="/" className="chip bg-pastel-green">{t("notFound.backHome")}</Link>
         </div>
       </div>
     </div>
@@ -32,19 +33,20 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+  const { t } = useLanguage();
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center paper-card p-8 animate-scale-in">
-        <h1 className="text-xl font-semibold animate-fade-in-up">Trang này không tải được</h1>
-        <p className="mt-2 text-sm text-muted-foreground animate-fade-in-up delay-100">Thử lại nhé!</p>
+        <h1 className="text-xl font-semibold animate-fade-in-up">{t("error.title")}</h1>
+        <p className="mt-2 text-sm text-muted-foreground animate-fade-in-up delay-100">{t("error.desc")}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2 animate-fade-in-up delay-200">
           <button
             onClick={() => { router.invalidate(); reset(); }}
             className="chip bg-pastel-blue"
           >
-            Thử lại
+            {t("error.tryAgain")}
           </button>
-          <a href="/" className="chip">Về trang chủ</a>
+          <a href="/" className="chip">{t("error.backHome")}</a>
         </div>
       </div>
     </div>
@@ -87,7 +89,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
         <Scripts />
       </body>
     </html>
@@ -98,9 +102,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <SiteLayout />
-      </LanguageProvider>
+      <SiteLayout />
     </QueryClientProvider>
   );
 }

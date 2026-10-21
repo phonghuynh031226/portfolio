@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Github, ExternalLink } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -37,6 +38,8 @@ async function getLanguages(url: string) {
 /** Individual card that scroll-reveals itself */
 function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
   const ref = useScrollReveal<HTMLElement>(0.1);
+  const { t } = useLanguage();
+
   return (
     <article
       ref={ref}
@@ -57,7 +60,7 @@ function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
       </div>
 
       <p className="text-sm mt-3 leading-relaxed">
-        {repo.description || "Dự án cá nhân trên GitHub."}
+        {repo.description || t("projects.default_desc")}
       </p>
 
       <div className="flex flex-wrap gap-1.5 mt-4">
@@ -77,7 +80,7 @@ function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
         rel="noreferrer"
         className="inline-flex items-center gap-1 text-xs font-mono mt-4 hover:underline transition-all duration-200 hover:gap-2"
       >
-        xem chi tiết <ExternalLink className="h-3 w-3" />
+        {t("projects.view_details")} <ExternalLink className="h-3 w-3" />
       </a>
     </article>
   );
@@ -87,6 +90,7 @@ function Projects() {
   const [projects, setProjects] = useState<GithubRepo[]>([]);
   const [loading, setLoading] = useState(true);
   const headerRef = useScrollReveal();
+  const { t } = useLanguage();
 
   useEffect(() => {
     async function loadRepos() {
@@ -114,10 +118,9 @@ function Projects() {
   return (
     <div className="space-y-8">
       <header ref={headerRef} className="space-y-3 reveal-on-scroll">
-        <h1 className="text-4xl font-bold">Dự án</h1>
+        <h1 className="text-4xl font-bold">{t("projects.title")}</h1>
         <p className="text-muted-foreground max-w-2xl">
-          Những dự án mình đã xây dựng trong quá trình học hỏi, thử nghiệm và phát triển kỹ năng của bản thân —
-          từ các ý tưởng nhỏ cho tới những sản phẩm mình thật sự tâm huyết.
+          {t("projects.desc")}
         </p>
       </header>
 
