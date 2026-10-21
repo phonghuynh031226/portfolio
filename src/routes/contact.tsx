@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Github, Linkedin, Send, Youtube } from "lucide-react";
+import { Mail, Github, Linkedin, Send, Youtube, Facebook } from "lucide-react";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 export const Route = createFileRoute("/contact")({
@@ -13,11 +13,29 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+    </svg>
+  );
+}
+
 const socialLinks = [
-  { href: "mailto:phonghuynh031226@gmail.com",         icon: Mail,    label: "phonghuynh031226@gmail.com" },
-  { href: "https://github.com/phonghuynh031226",        icon: Github,  label: "github.com/phonghuynh031226",   external: true },
-  { href: "https://linkedin.com/in/phonghuynh031226",   icon: Linkedin,label: "linkedin.com/in/phonghuynh031226", external: true },
-  { href: "https://youtube.com/@RAYKIVN",               icon: Youtube, label: "youtube.com/@RAYKIVN",          external: true },
+  { href: "mailto:phonghuynh031226@gmail.com",         icon: Mail,       label: "phonghuynh031226@gmail.com" },
+  { href: "https://github.com/phonghuynh031226",        icon: Github,     label: "github.com/phonghuynh031226",   external: true },
+  { href: "https://www.facebook.com/phonghuynh031226",  icon: Facebook,   label: "facebook.com/phonghuynh031226", external: true },
+  { href: "https://www.tiktok.com/@phonghuynh031226",   icon: TikTokIcon, label: "tiktok.com/@phonghuynh031226",  external: true },
+  { href: "https://linkedin.com/in/phonghuynh031226",   icon: Linkedin,   label: "linkedin.com/in/phonghuynh031226", external: true },
+  { href: "https://youtube.com/@RAYKIVN",               icon: Youtube,    label: "youtube.com/@RAYKIVN",          external: true },
 ];
 
 function Contact() {

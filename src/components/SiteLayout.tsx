@@ -1,9 +1,25 @@
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
-import { Github, Mail, Sparkles, Menu, X } from "lucide-react";
+import { Github, Mail, Sparkles, Menu, X, Facebook } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import type { TranslationKey } from "@/i18n/LanguageContext";
+
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+    </svg>
+  );
+}
 
 const navConfig: Array<{ to: string; labelKey: TranslationKey }> = [
   { to: "/", labelKey: "nav.about" },
@@ -134,6 +150,24 @@ export function SiteLayout() {
               className="transition-all duration-200 hover:text-primary hover:scale-110"
             >
               <Github className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.facebook.com/phonghuynh031226"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="transition-all duration-200 hover:text-primary hover:scale-110"
+            >
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@phonghuynh031226"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="TikTok"
+              className="transition-all duration-200 hover:text-primary hover:scale-110"
+            >
+              <TikTokIcon className="h-4 w-4" />
             </a>
           </div>
         </div>
