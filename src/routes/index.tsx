@@ -1,45 +1,46 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import avatar from "@/assets/avt.jpg";
-import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [{ title: "phonghuynh — Xin chào 👋" }],
+    meta: [{ title: "phonghuynh — Portfolio" }],
   }),
   component: Index,
 });
 
 function Index() {
   const aboutRef = useScrollReveal();
+  const { t } = useLanguage();
 
   return (
     <div className="space-y-16">
-
       {/* ── Hero ── */}
       <section className="grid md:grid-cols-[1.2fr_1fr] gap-8 items-center">
         <div className="space-y-5">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in-up delay-0">
-            Hi, mình là{" "}
+            {t("home.greeting_prefix")}{" "}
             <span className="bg-pastel-green px-2 border-2 border-foreground rounded-md inline-block animate-bounce-subtle">
               phonghuynh
             </span>{" "}
-            👋
+            {t("home.greeting_suffix")}
           </h1>
 
           <p className="text-lg text-muted-foreground animate-fade-in-up delay-150">
-            Sinh viên ngành phát triển phần mềm, yêu thích AI, code và những công nghệ mới.
+            {t("home.bio")}
           </p>
 
           <blockquote className="paper-card p-4 bg-pastel-beige italic animate-fade-in-up delay-300">
-            "Cơ hội giống như bình minh. Nếu bạn chờ quá lâu, bạn sẽ bỏ lỡ nó."
+            {t("home.quote")}
           </blockquote>
 
           <div className="flex flex-wrap gap-3 pt-2 animate-fade-in-up delay-400">
             <Link to="/projects" className="chip bg-pastel-green hover:bg-pastel-blue">
-              → Xem dự án
+              {t("home.btn_projects")}
             </Link>
             <Link to="/contact" className="chip">
-              → Liên hệ với mình
+              {t("home.btn_contact")}
             </Link>
           </div>
         </div>
@@ -61,11 +62,9 @@ function Index() {
         ref={aboutRef}
         className="paper-card p-6 md:p-8 bg-pastel-blue/40 reveal-on-scroll"
       >
-        <h2 className="text-2xl font-bold mb-2">Về mình</h2>
+        <h2 className="text-2xl font-bold mb-2">{t("home.about_title")}</h2>
         <p className="text-muted-foreground leading-relaxed">
-          Mình bắt đầu với lập trình bằng việc mày mò những đoạn code có sẵn,
-          thử sửa, thử build lại và tìm hiểu cách mọi thứ hoạt động phía sau.
-          Từ những lần "vọc cho vui", coding dần trở thành điều mình thật sự đam mê.
+          {t("home.about_desc")}
         </p>
       </section>
     </div>

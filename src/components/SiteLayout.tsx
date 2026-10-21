@@ -1,44 +1,48 @@
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
 import { Github, Mail, Sparkles, Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import type { TranslationKey } from "@/i18n/LanguageContext";
 
-const navItems = [
-  { to: "/",         label: "Giới thiệu" },
-  { to: "/projects", label: "Dự án"      },
-  { to: "/resume",   label: "Kinh nghiệm"},
-  { to: "/blog",     label: "Blog"        },
-  { to: "/contact",  label: "Liên hệ"    },
-  { to: "/donate",   label: "Donate"     },
-] as const;
+const navConfig: Array<{ to: string; labelKey: TranslationKey }> = [
+  { to: "/", labelKey: "nav.about" },
+  { to: "/projects", labelKey: "nav.projects" },
+  { to: "/resume", labelKey: "nav.resume" },
+  { to: "/blog", labelKey: "nav.blog" },
+  { to: "/contact", labelKey: "nav.contact" },
+  { to: "/donate", labelKey: "nav.donate" },
+];
 
 export function SiteLayout() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
-  const [pageKey, setPageKey]     = useState(location.pathname);
+  const [pageKey, setPageKey] = useState(location.pathname);
   const [isExiting, setIsExiting] = useState(false);
   const prevPath = useRef(location.pathname);
 
   useEffect(() => {
     if (location.pathname === prevPath.current) return;
     setIsExiting(true);
-    const t = setTimeout(() => {
+    const tTimer = setTimeout(() => {
       setIsExiting(false);
       setPageKey(location.pathname);
       prevPath.current = location.pathname;
     }, 220);
-    return () => clearTimeout(t);
+    return () => clearTimeout(tTimer);
   }, [location.pathname]);
 
-  useEffect(() => { setOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen flex flex-col">
-
       {/* ── Header ── */}
       <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b-2 border-foreground animate-fade-in-down">
         <div className="max-w-6xl mx-auto px-4 flex items-end justify-between gap-4">
-
           {/* Logo — vertically centred with the tab row */}
           <Link
             to="/"
@@ -50,47 +54,52 @@ export function SiteLayout() {
             phonghuynh<span className="text-primary">.dev</span>
           </Link>
 
-          {/* Desktop tab bar */}
-          <nav className="hidden md:flex items-end gap-0 h-full">
-            {navItems.map((item, i) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className="nav-tab text-sm animate-fade-in-down"
-                style={{ animationDelay: `${i * 45 + 80}ms` }}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Mobile toggle */}
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Mở menu"
-            aria-expanded={open}
-            className="md:hidden inline-flex h-9 w-9 mb-2 items-center justify-center rounded-lg border-2 border-foreground bg-pastel-beige transition-transform duration-200 active:scale-90"
-          >
-            {open
-              ? <X    className="h-4 w-4 animate-scale-in" />
-              : <Menu className="h-4 w-4 animate-scale-in" />
-            }
-          </button>
+          {/* Desktop tab bar & Language Switcher */}
+          <div className="flex items-center gap-2 md:gap-3">
+            <nav className="hidden md:flex items-end gap-0 h-full">
+              {navConfig.map((item, i) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className="nav-tab text-sm animate-fade-in-down"
+                  style={{ animationDelay: `${i * 45 + 80}ms` }}
+                >
+                  {t(item.labelKey)}
+                </Link>
+              ))}
+            </nav>
+            <div className="mb-2 md:mb-1">
+              <LanguageSwitcher />
+            </div>
+            {/* Mobile toggle */}
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-label="Mở menu"
+              aria-expanded={open}
+              className="md:hidden inline-flex h-9 w-9 mb-2 items-center justify-center rounded-lg border-2 border-foreground bg-pastel-beige transition-transform duration-200 active:scale-90"
+            >
+              {open ? (
+                <X className="h-4 w-4 animate-scale-in" />
+              ) : (
+                <Menu className="h-4 w-4 animate-scale-in" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile nav drawer */}
         {open && (
           <nav className="md:hidden border-t-2 border-foreground bg-background animate-slide-down">
             <div className="max-w-6xl mx-auto px-4 py-2 flex flex-col">
-              {navItems.map((item, i) => (
+              {navConfig.map((item, i) => (
                 <Link
                   key={item.to}
                   to={item.to}
                   className="nav-tab-mobile animate-fade-in-up"
                   style={{ animationDelay: `${i * 50}ms` }}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               ))}
             </div>

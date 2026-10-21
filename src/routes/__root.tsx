@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { SiteLayout } from "@/components/SiteLayout";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 
 function NotFoundComponent() {
   return (
@@ -97,7 +98,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteLayout />
+      <LanguageProvider>
+        <SiteLayout />
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }
