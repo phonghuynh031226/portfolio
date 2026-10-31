@@ -1,0 +1,143 @@
+/* Chrome 109 fallback for this site's palette and opacity utilities.
+ * Loaded only without OKLCH support; the guard also protects modern browsers.
+ * Keep RGB values in sync with styles.css when changing the palette.
+ * Existing Tailwind 4.2 property defaults and layout remain in styles.css.
+ */
+@supports not (color: oklch(0.5 0.1 120)) {
+  @layer components {
+    .skeleton {
+      background: linear-gradient(
+        90deg,
+        var(--muted) 25%,
+        #ede8d9 50%,
+        var(--muted) 75%
+      );
+    }
+  }
+
+  @layer utilities {
+    .border-border\/50 {
+      border-color: #c6cedb80;
+    }
+
+    .border-destructive\/50 {
+      border-color: #f14d4c80;
+    }
+
+    .border-primary\/50 {
+      border-color: #57acc580;
+    }
+
+    .bg-background\/80 {
+      background-color: #fdfaf3cc;
+    }
+
+    .bg-black\/80 {
+      background-color: #000c;
+    }
+
+    .bg-muted\/50 {
+      background-color: #f4eee080;
+    }
+
+    .bg-pastel-beige\/60 {
+      background-color: #fae9ce99;
+    }
+
+    .bg-pastel-blue\/40 {
+      background-color: #c1e3fc66;
+    }
+
+    .bg-pastel-blue\/50 {
+      background-color: #c1e3fc80;
+    }
+
+    .bg-pastel-green\/60 {
+      background-color: #c9f1d099;
+    }
+
+    .bg-primary\/10 {
+      background-color: #57acc51a;
+    }
+
+    .bg-primary\/20 {
+      background-color: #57acc533;
+    }
+
+    .text-foreground\/80 {
+      color: #1c222bcc;
+    }
+
+    .group-data-\[focused\=true\]\/day\:ring-ring\/50:is(
+      :where(.group\/day)[data-focused="true"] *
+    ) {
+      --tw-ring-color: #57acc580;
+    }
+
+    @media (hover: hover) {
+      .hover\:bg-destructive\/80:hover {
+        background-color: #f14d4ccc;
+      }
+
+      .hover\:bg-destructive\/90:hover {
+        background-color: #f14d4ce6;
+      }
+
+      .hover\:bg-muted\/50:hover {
+        background-color: #f4eee080;
+      }
+
+      .hover\:bg-primary\/80:hover {
+        background-color: #57acc5cc;
+      }
+
+      .hover\:bg-primary\/90:hover {
+        background-color: #57acc5e6;
+      }
+
+      .hover\:bg-secondary\/80:hover {
+        background-color: #c9f1d0cc;
+      }
+    }
+
+    .has-focus\:ring-ring\/50:has(:focus) {
+      --tw-ring-color: #57acc580;
+    }
+
+    .data-\[state\=open\]\:bg-accent\/50[data-state="open"] {
+      background-color: #fae9ce80;
+    }
+
+    .\[\&_\.recharts-cartesian-grid_line\[stroke\=\'\#ccc\'\]\]\:stroke-border\/50
+      .recharts-cartesian-grid
+      line[stroke="#ccc"] {
+      stroke: #c6cedb80;
+    }
+  }
+
+  :root {
+    --pastel-beige: #fae9ce;
+    --pastel-blue: #c1e3fc;
+    --pastel-green: #c9f1d0;
+    --ink: #1c222b;
+    --background: #fdfaf3;
+    --foreground: #1c222b;
+    --card: #fff;
+    --card-foreground: #1c222b;
+    --popover: #fff;
+    --popover-foreground: #1c222b;
+    --primary: #57acc5;
+    --primary-foreground: #11161f;
+    --secondary: #c9f1d0;
+    --secondary-foreground: #1c222b;
+    --muted: #f4eee0;
+    --muted-foreground: #5d646f;
+    --accent: #fae9ce;
+    --accent-foreground: #1c222b;
+    --destructive: #f14d4c;
+    --destructive-foreground: #fcfcfc;
+    --border: #c6cedb;
+    --input: #d6dfec;
+    --ring: #57acc5;
+  }
+}

@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import legacyCss from "../styles-legacy.css?url";
+import { legacyStylesheetLoader } from "@/lib/legacy-styles";
 import { SiteLayout } from "@/components/SiteLayout";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 
@@ -87,6 +89,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="vi">
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: legacyStylesheetLoader(legacyCss) }} />
       </head>
       <body>
         <LanguageProvider>
