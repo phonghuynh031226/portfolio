@@ -32,7 +32,7 @@ export const vi: TranslationSchema = {
     education_status: "Đang cập nhật...",
     experience_title: "Kinh nghiệm",
     internship_role: "Thực tập sinh Frontend — Công Ty Cổ Phần Giải Pháp Tổng Thể Amazing",
-    internship_time: "05/2026 — hiện tại",
+    internship_time: "05/2026 — 08/2026",
     skills_title: "Kỹ năng",
     cat_languages: "Ngôn ngữ",
     cat_frontend: "Frontend",

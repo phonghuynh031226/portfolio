@@ -32,7 +32,7 @@ export const ko: TranslationSchema = {
     education_status: "업데이트 중...",
     experience_title: "경력",
     internship_role: "프론트엔드 인턴 — Amazing Total Solutions Joint Stock Company",
-    internship_time: "2026.05 — 현재",
+    internship_time: "2026.05 — 2026.08",
     skills_title: "기술 스택",
     cat_languages: "프로그래밍 언어",
     cat_frontend: "프론트엔드",

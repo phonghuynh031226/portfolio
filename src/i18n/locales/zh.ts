@@ -32,7 +32,7 @@ export const zh: TranslationSchema = {
     education_status: "更新中...",
     experience_title: "工作经历",
     internship_role: "前端实习生 — Amazing Total Solutions Joint Stock Company",
-    internship_time: "2026.05 — 至今",
+    internship_time: "2026.05 — 2026.08",
     skills_title: "技能特长",
     cat_languages: "编程语言",
     cat_frontend: "前端开发",

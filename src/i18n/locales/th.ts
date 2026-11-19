@@ -32,7 +32,7 @@ export const th: TranslationSchema = {
     education_status: "กำลังอัปเดตข้อมูล...",
     experience_title: "ประสบการณ์ทำงาน",
     internship_role: "นักศึกษาฝึกงาน Frontend — Amazing Total Solutions Joint Stock Company",
-    internship_time: "05/2026 — ปัจจุบัน",
+    internship_time: "05/2026 — 08/2026",
     skills_title: "ทักษะความสามารถ",
     cat_languages: "ภาษาโปรแกรม",
     cat_frontend: "Frontend",

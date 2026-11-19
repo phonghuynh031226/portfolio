@@ -32,7 +32,7 @@ export const en: TranslationSchema = {
     education_status: "Updating...",
     experience_title: "Experience",
     internship_role: "Frontend Intern — Amazing Total Solutions Joint Stock Company",
-    internship_time: "05/2026 — Present",
+    internship_time: "05/2026 — 08/2026",
     skills_title: "Skills",
     cat_languages: "Languages",
     cat_frontend: "Frontend",

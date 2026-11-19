@@ -21,11 +21,19 @@ function Resume() {
   const { t } = useLanguage();
 
   const skills = {
-    [t("resume.cat_languages")]: ["Java", "JavaScript", "HTML", "CSS", `PHP (${t("resume.skill_basic")})`],
-    [t("resume.cat_frontend")]: ["Vue.js", "Tailwind CSS", `React.js (${t("resume.skill_learning")})`],
-    [t("resume.cat_backend")]: ["MySQL", "SQL Server", `MongoDB (${t("resume.skill_learning")})`, "Spring Boot", "XAMPP"],
+    [t("resume.cat_languages")]: ["Java", "JavaScript", "HTML", "CSS", `PHP (${t("resume.skill_basic")})`, "C++"],
+    [t("resume.cat_frontend")]: ["Vue.js", "Tailwind CSS", `React.js (${t("resume.skill_basic")})`],
+    [t("resume.cat_backend")]: [
+      "MySQL",
+      "SQL Server",
+      `MongoDB (${t("resume.skill_basic")})`,
+      `PostgreSQL (${t("resume.skill_basic")})`,
+      "Spring Boot",
+      "XAMPP",
+    ],
     [t("resume.cat_tools")]: ["VS Code", "NetBeans", "Eclipse IDE", "IntelliJ IDEA", "Postman", "GitHub", "GitLab", `Docker (${t("resume.skill_basic")})`, "Figma"],
-    [t("resume.cat_other")]: [`Git (${t("resume.skill_basic")})`, t("resume.office_skill"), t("resume.coffee_skill")],
+    AI: ["Codex", "Antigravity", "Claude", "DeepSeek"],
+    [t("resume.cat_other")]: ["Git", t("resume.office_skill"), t("resume.coffee_skill")],
   };
 
   return (
