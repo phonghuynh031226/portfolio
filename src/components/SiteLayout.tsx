@@ -21,14 +21,16 @@ function TikTokIcon({ className }: { className?: string }) {
   );
 }
 
-const navConfig: Array<{ to: string; labelKey: TranslationKey }> = [
+const navConfig: Array<{ to: string; labelKey: TranslationKey; hidden?: boolean }> = [
   { to: "/", labelKey: "nav.about" },
   { to: "/projects", labelKey: "nav.projects" },
   { to: "/resume", labelKey: "nav.resume" },
   { to: "/blog", labelKey: "nav.blog" },
   { to: "/contact", labelKey: "nav.contact" },
-  { to: "/donate", labelKey: "nav.donate" },
+  { to: "/donate", labelKey: "nav.donate", hidden: true },
 ];
+
+const visibleNav = navConfig.filter((item) => !item.hidden);
 
 export function SiteLayout() {
   const [open, setOpen] = useState(false);
@@ -73,7 +75,7 @@ export function SiteLayout() {
           {/* Desktop tab bar & Language Switcher */}
           <div className="flex items-center gap-2 md:gap-3">
             <nav className="hidden md:flex items-end gap-0 h-full">
-              {navConfig.map((item, i) => (
+              {visibleNav.map((item, i) => (
                 <Link
                   key={item.to}
                   to={item.to}
@@ -108,7 +110,7 @@ export function SiteLayout() {
         {open && (
           <nav className="md:hidden border-t-2 border-foreground bg-background animate-slide-down">
             <div className="max-w-6xl mx-auto px-4 py-2 flex flex-col">
-              {navConfig.map((item, i) => (
+              {visibleNav.map((item, i) => (
                 <Link
                   key={item.to}
                   to={item.to}
