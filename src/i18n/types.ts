@@ -24,6 +24,10 @@ export interface TranslationSchema {
     desc: string;
     view_details: string;
     default_desc: string;
+    personal_title: string;
+    contributed_title: string;
+    empty: string;
+    unavailable: string;
   };
   resume: {
     title: string;

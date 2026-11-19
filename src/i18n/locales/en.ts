@@ -20,6 +20,10 @@ export const en: TranslationSchema = {
     about_desc: "I started coding by tinkering with existing projects, testing, rebuilding, and figuring out how everything worked under the hood. What began as casual curiosity quickly became my true passion.",
   },
   projects: {
+    personal_title: "Personal projects",
+    contributed_title: "Projects I contributed to",
+    empty: "No projects yet.",
+    unavailable: "Could not load projects.",
     title: "Projects",
     desc: "A collection of projects I've built while learning, experimenting, and refining my engineering skills — from mini prototypes to full-scale side projects.",
     view_details: "view details",

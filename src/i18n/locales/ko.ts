@@ -20,6 +20,10 @@ export const ko: TranslationSchema = {
     about_desc: "기존 코드를 만져보고, 다시 빌드해보며 뒷단의 동작 원리를 탐구하면서 프로그래밍을 시작했습니다. 단순한 호기심에서 시작된 코딩이 이제는 진정한 열정이 되었습니다.",
   },
   projects: {
+    personal_title: "개인 프로젝트",
+    contributed_title: "참여한 프로젝트",
+    empty: "아직 프로젝트가 없습니다.",
+    unavailable: "프로젝트를 불러오지 못했습니다.",
     title: "프로젝트",
     desc: "학습하고 실험하며 실력을 쌓는 과정에서 만들어온 프로젝트들입니다. 작은 아이디어부터 정성을 다한 결과물까지 담겨 있습니다.",
     view_details: "자세히 보기",

@@ -20,6 +20,10 @@ export const ja: TranslationSchema = {
     about_desc: "既存のコードをいじったり、改造して再構築したりしながら、仕組みを解き明かすことから始めました。最初は遊び感覚でしたが、やがてプログラミングが真の情熱へと変わりました。",
   },
   projects: {
+    personal_title: "個人プロジェクト",
+    contributed_title: "参加したプロジェクト",
+    empty: "プロジェクトはまだありません。",
+    unavailable: "プロジェクトを読み込めませんでした。",
     title: "プロジェクト",
     desc: "学び、実験し、スキルを磨く中で制作したプロジェクトの数々。小さなプロトタイプから情熱を注いだ作品まで。",
     view_details: "詳細を見る",

@@ -20,6 +20,10 @@ export const zh: TranslationSchema = {
     about_desc: "我从研究现有代码、动手修改与重新构建开始接触编程，探索背后的运行机制。最初的好奇尝试，如今已成为我真正热爱的追求。",
   },
   projects: {
+    personal_title: "个人项目",
+    contributed_title: "参与的项目",
+    empty: "暂无项目。",
+    unavailable: "无法加载项目列表。",
     title: "项目成果",
     desc: "我在学习、探索与提升技能过程中所构建的项目合集 — 从微小的创意原型到傾注心血的完整作品。",
     view_details: "查看详情",

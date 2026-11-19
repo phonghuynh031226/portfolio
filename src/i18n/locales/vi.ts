@@ -20,6 +20,10 @@ export const vi: TranslationSchema = {
     about_desc: "Mình bắt đầu với lập trình bằng việc mày mò những đoạn code có sẵn, thử sửa, thử build lại và tìm hiểu cách mọi thứ hoạt động phía sau. Từ những lần “vọc cho vui”, coding dần trở thành điều mình thật sự đam mê.",
   },
   projects: {
+    personal_title: "Dự án cá nhân",
+    contributed_title: "Dự án tham gia",
+    empty: "Chưa có dự án.",
+    unavailable: "Chưa tải được danh sách dự án.",
     title: "Dự án",
     desc: "Những dự án mình đã xây dựng trong quá trình học hỏi, thử nghiệm và phát triển kỹ năng của bản thân — từ các ý tưởng nhỏ cho tới những sản phẩm mình thật sự tâm huyết.",
     view_details: "xem chi tiết",

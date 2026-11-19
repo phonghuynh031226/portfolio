@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Github, ExternalLink } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getContributedProjects } from "@/lib/github-contributions";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -15,28 +16,33 @@ export const Route = createFileRoute("/projects")({
 });
 
 type GithubRepo = {
-  id: number;
   name: string;
   description: string | null;
   html_url: string;
   homepage: string | null;
   language: string | null;
+  tags?: string[];
+};
+
+type PersonalRepo = GithubRepo & {
   fork: boolean;
   stargazers_count: number;
   languages_url: string;
-  tags?: string[];
 };
 
 const accents = ["bg-pastel-blue", "bg-pastel-green", "bg-pastel-beige"];
 
 async function getLanguages(url: string) {
-  const res = await fetch(url);
-  const data = await res.json();
-  return Object.keys(data).slice(0, 4);
+  try {
+    const res = await fetch(url);
+    return res.ok ? Object.keys(await res.json()).slice(0, 4) : [];
+  } catch {
+    return [];
+  }
 }
 
 /** Individual card that scroll-reveals itself */
-function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
+function ProjectCard({ repo, index, contributed }: { repo: GithubRepo; index: number; contributed: boolean }) {
   const ref = useScrollReveal<HTMLElement>(0.1);
   const { t } = useLanguage();
 
@@ -59,9 +65,11 @@ function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
         </a>
       </div>
 
-      <p className="text-sm mt-3 leading-relaxed">
-        {repo.description || t("projects.default_desc")}
-      </p>
+      {(repo.description || !contributed) && (
+        <p className="text-sm mt-3 leading-relaxed">
+          {repo.description || t("projects.default_desc")}
+        </p>
+      )}
 
       <div className="flex flex-wrap gap-1.5 mt-4">
         {(repo.tags?.length ? repo.tags : [repo.language || "Code"]).map((tag) => (
@@ -87,15 +95,16 @@ function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
 }
 
 function Projects() {
-  const [projects, setProjects] = useState<GithubRepo[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [personal, setPersonal] = useState<GithubRepo[] | null>();
+  const [contributed, setContributed] = useState<GithubRepo[] | null>();
   const headerRef = useScrollReveal();
   const { t } = useLanguage();
 
   useEffect(() => {
     async function loadRepos() {
       const res = await fetch("https://api.github.com/users/phonghuynh031226/repos?per_page=100");
-      const data: GithubRepo[] = await res.json();
+      if (!res.ok) throw new Error("Could not load personal repositories");
+      const data: PersonalRepo[] = await res.json();
 
       const repos = data
         .filter((repo) => !repo.fork)
@@ -108,11 +117,11 @@ function Projects() {
         }))
       );
 
-      setProjects(reposWithLanguages);
-      setLoading(false);
+      setPersonal(reposWithLanguages);
     }
 
-    loadRepos().catch(console.error);
+    void loadRepos().catch(() => setPersonal(null));
+    void getContributedProjects().then(setContributed).catch(() => setContributed(null));
   }, []);
 
   return (
@@ -124,10 +133,29 @@ function Projects() {
         </p>
       </header>
 
-      {/* Skeleton loading */}
-      {loading && (
+      <ProjectSection title={t("projects.personal_title")} repos={personal} />
+      <ProjectSection title={t("projects.contributed_title")} repos={contributed} contributed />
+    </div>
+  );
+}
+
+function ProjectSection({
+  title,
+  repos,
+  contributed = false,
+}: {
+  title: string;
+  repos: GithubRepo[] | null | undefined;
+  contributed?: boolean;
+}) {
+  const { t } = useLanguage();
+
+  return (
+    <section className="space-y-4">
+      <h2 className="font-mono text-xl font-bold">{title}</h2>
+      {repos === undefined && (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {Array.from({ length: 6 }).map((_, i) => (
+          {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
               className="border-2 border-foreground rounded-lg p-5 space-y-3 animate-fade-in-up"
@@ -145,14 +173,15 @@ function Projects() {
         </div>
       )}
 
-      {/* Project cards — each scroll-reveals individually */}
-      {!loading && (
+      {repos === null && <p className="text-sm text-muted-foreground">{t("projects.unavailable")}</p>}
+      {repos?.length === 0 && <p className="text-sm text-muted-foreground">{t("projects.empty")}</p>}
+      {repos && repos.length > 0 && (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {projects.map((p, index) => (
-            <ProjectCard key={p.id} repo={p} index={index} />
+          {repos.map((repo, index) => (
+            <ProjectCard key={repo.html_url} repo={repo} index={index} contributed={contributed} />
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 }
