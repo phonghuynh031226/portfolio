@@ -3,7 +3,7 @@ import { Github, ExternalLink, Folder, Users } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { getContributedProjects } from "@/lib/github-contributions";
+import { getContributedProjects, getPersonalProjects } from "@/lib/github-contributions";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -21,25 +21,9 @@ type GithubRepo = {
   html_url: string;
   homepage: string | null;
   language: string | null;
-  tags?: string[];
-};
-
-type PersonalRepo = GithubRepo & {
-  fork: boolean;
-  stargazers_count: number;
-  languages_url: string;
 };
 
 const accents = ["bg-pastel-blue", "bg-pastel-green", "bg-pastel-beige"];
-
-async function getLanguages(url: string) {
-  try {
-    const res = await fetch(url);
-    return res.ok ? Object.keys(await res.json()).slice(0, 4) : [];
-  } catch {
-    return [];
-  }
-}
 
 /** Individual card that scroll-reveals itself */
 function ProjectCard({ repo, index, contributed }: { repo: GithubRepo; index: number; contributed: boolean }) {
@@ -72,14 +56,9 @@ function ProjectCard({ repo, index, contributed }: { repo: GithubRepo; index: nu
       )}
 
       <div className="flex flex-wrap gap-1.5 mt-4">
-        {(repo.tags?.length ? repo.tags : [repo.language || "Code"]).map((tag) => (
-          <span
-            key={tag}
-            className="font-mono text-[11px] px-2 py-0.5 bg-background border border-foreground rounded transition-colors duration-200 hover:bg-pastel-blue"
-          >
-            {tag}
-          </span>
-        ))}
+        <span className="font-mono text-[11px] px-2 py-0.5 bg-background border border-foreground rounded transition-colors duration-200 hover:bg-pastel-blue">
+          {repo.language || "Code"}
+        </span>
       </div>
 
       <a
@@ -102,26 +81,7 @@ function Projects() {
   const { t } = useLanguage();
 
   useEffect(() => {
-    async function loadRepos() {
-      const res = await fetch("https://api.github.com/users/phonghuynh031226/repos?per_page=100");
-      if (!res.ok) throw new Error("Could not load personal repositories");
-      const data: PersonalRepo[] = await res.json();
-
-      const repos = data
-        .filter((repo) => !repo.fork)
-        .sort((a, b) => b.stargazers_count - a.stargazers_count);
-
-      const reposWithLanguages = await Promise.all(
-        repos.map(async (repo) => ({
-          ...repo,
-          tags: await getLanguages(repo.languages_url),
-        }))
-      );
-
-      setPersonal(reposWithLanguages);
-    }
-
-    void loadRepos().catch(() => setPersonal(null));
+    void getPersonalProjects().then(setPersonal).catch(() => setPersonal(null));
     void getContributedProjects().then(setContributed).catch(() => setContributed(null));
   }, []);
 
