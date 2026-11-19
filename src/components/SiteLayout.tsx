@@ -136,7 +136,7 @@ export function SiteLayout() {
           <p>© {new Date().getFullYear()} phonghuynh</p>
           <div className="flex items-center gap-3">
             <a
-              href="mailto:phonghuynh031226@gmail.com"
+              href="mailto:contact@phonghuynh.dev"
               aria-label="Email"
               className="transition-all duration-200 hover:text-primary hover:scale-110"
             >

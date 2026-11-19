@@ -31,7 +31,7 @@ function TikTokIcon({ className }: { className?: string }) {
 }
 
 const socialLinks = [
-  { href: "mailto:phonghuynh031226@gmail.com",         icon: Mail,       label: "phonghuynh031226@gmail.com" },
+  { href: "mailto:contact@phonghuynh.dev",             icon: Mail,       label: "contact@phonghuynh.dev" },
   { href: "https://github.com/phonghuynh031226",        icon: Github,     label: "github.com/phonghuynh031226",   external: true },
   { href: "https://www.facebook.com/phonghuynh031226",  icon: Facebook,   label: "facebook.com/phonghuynh031226", external: true },
   { href: "https://www.tiktok.com/@phonghuynh031226",   icon: TikTokIcon, label: "tiktok.com/@phonghuynh031226",  external: true },
