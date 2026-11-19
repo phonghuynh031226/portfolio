@@ -45,8 +45,9 @@ export const ko: TranslationSchema = {
     cat_other: "기타",
     skill_learning: "학습 중",
     skill_basic: "기초",
-    coffee_skill: "커피 내리기 ☕",
-    office_skill: "기본 오피스 활용 능력",
+    office_skill: "사무용 소프트웨어",
+    vovinam_skill: "보비남 무술",
+    guitar_skill: "기타 연주",
   },
   blog: {
     title: "블로그 & 일상",

@@ -45,8 +45,9 @@ export const vi: TranslationSchema = {
     cat_other: "Khác",
     skill_learning: "đang học",
     skill_basic: "cơ bản",
-    coffee_skill: "Pha cà phê ☕",
-    office_skill: "Tin học văn phòng cơ bản",
+    office_skill: "Tin học văn phòng",
+    vovinam_skill: "Võ Vovinam",
+    guitar_skill: "Đàn guitar",
   },
   blog: {
     title: "Blog & trải nghiệm",

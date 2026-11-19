@@ -45,8 +45,9 @@ export const zh: TranslationSchema = {
     cat_other: "其他",
     skill_learning: "学习中",
     skill_basic: "基础",
-    coffee_skill: "煮咖啡 ☕",
-    office_skill: "日常办公软件操作",
+    office_skill: "办公软件",
+    vovinam_skill: "越武道（Vovinam）",
+    guitar_skill: "吉他弹奏",
   },
   blog: {
     title: "博客与随笔",

@@ -45,8 +45,9 @@ export const en: TranslationSchema = {
     cat_other: "Other",
     skill_learning: "learning",
     skill_basic: "basic",
-    coffee_skill: "Brewing coffee ☕",
-    office_skill: "General office skills",
+    office_skill: "Office software",
+    vovinam_skill: "Vovinam martial arts",
+    guitar_skill: "Guitar",
   },
   blog: {
     title: "Blog & Insights",

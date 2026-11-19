@@ -33,7 +33,7 @@ function Resume() {
     ],
     [t("resume.cat_tools")]: ["VS Code", "NetBeans", "Eclipse IDE", "IntelliJ IDEA", "Postman", "GitHub", "GitLab", `Docker (${t("resume.skill_basic")})`, "Figma"],
     AI: ["Codex", "Antigravity", "Claude", "DeepSeek"],
-    [t("resume.cat_other")]: ["Git", t("resume.office_skill"), t("resume.coffee_skill")],
+    [t("resume.cat_other")]: ["Git", t("resume.office_skill"), t("resume.vovinam_skill"), t("resume.guitar_skill")],
   };
 
   return (

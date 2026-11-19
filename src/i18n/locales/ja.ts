@@ -45,8 +45,9 @@ export const ja: TranslationSchema = {
     cat_other: "その他",
     skill_learning: "学習中",
     skill_basic: "基礎",
-    coffee_skill: "コーヒー淹れ ☕",
-    office_skill: "一般的な事務作業",
+    office_skill: "オフィスソフト",
+    vovinam_skill: "ボビナム武術",
+    guitar_skill: "ギター",
   },
   blog: {
     title: "ブログ・日常",

@@ -45,8 +45,9 @@ export interface TranslationSchema {
     cat_other: string;
     skill_learning: string;
     skill_basic: string;
-    coffee_skill: string;
     office_skill: string;
+    vovinam_skill: string;
+    guitar_skill: string;
   };
   blog: {
     title: string;
