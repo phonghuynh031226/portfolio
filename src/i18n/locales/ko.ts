@@ -29,7 +29,7 @@ export const ko: TranslationSchema = {
     title: "경력 및 기술",
     desc: "개발 과정에서 습득한 기술 스택과 다양한 실무 경험입니다.",
     education_title: "학력",
-    education_status: "업데이트 중...",
+    education_status: "FPT 대학교",
     experience_title: "경력",
     internship_role: "프론트엔드 인턴 — Amazing Total Solutions Joint Stock Company",
     internship_time: "2026.05 — 2026.08",

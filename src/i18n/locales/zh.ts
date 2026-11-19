@@ -29,7 +29,7 @@ export const zh: TranslationSchema = {
     title: "经历与技能",
     desc: "我在开发成长历程中所积累的技术栈与实践经验。",
     education_title: "教育背景",
-    education_status: "更新中...",
+    education_status: "FPT 大学",
     experience_title: "工作经历",
     internship_role: "前端实习生 — Amazing Total Solutions Joint Stock Company",
     internship_time: "2026.05 — 2026.08",

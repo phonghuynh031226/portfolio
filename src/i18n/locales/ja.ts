@@ -29,7 +29,7 @@ export const ja: TranslationSchema = {
     title: "経歴・スキル",
     desc: "これまでの開発経験で培ってきたスキル、技術、および実務経験。",
     education_title: "学歴",
-    education_status: "更新中...",
+    education_status: "FPT大学",
     experience_title: "職務経歴",
     internship_role: "フロントエンドインターン — Amazing Total Solutions Joint Stock Company",
     internship_time: "2026年5月 — 2026年8月",

@@ -29,7 +29,7 @@ export const th: TranslationSchema = {
     title: "ประสบการณ์ & ทักษะ",
     desc: "ทักษะ เทคโนโลยี และประสบการณ์ที่ผมได้สั่งสมมาระหว่างการพัฒนาซอฟต์แวร์",
     education_title: "การศึกษา",
-    education_status: "กำลังอัปเดตข้อมูล...",
+    education_status: "มหาวิทยาลัย FPT",
     experience_title: "ประสบการณ์ทำงาน",
     internship_role: "นักศึกษาฝึกงาน Frontend — Amazing Total Solutions Joint Stock Company",
     internship_time: "05/2026 — 08/2026",

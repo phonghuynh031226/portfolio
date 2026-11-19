@@ -29,7 +29,7 @@ export const vi: TranslationSchema = {
     title: "Kinh nghiệm & kỹ năng",
     desc: "Những kỹ năng, công nghệ và kinh nghiệm mình đã tích lũy trong quá trình phát triển.",
     education_title: "Học vấn",
-    education_status: "Đang cập nhật...",
+    education_status: "Đại học FPT",
     experience_title: "Kinh nghiệm",
     internship_role: "Thực tập sinh Frontend — Công Ty Cổ Phần Giải Pháp Tổng Thể Amazing",
     internship_time: "05/2026 — 08/2026",
