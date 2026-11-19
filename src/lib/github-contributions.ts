@@ -15,11 +15,10 @@ type RepositoryPage = {
   pageInfo: { hasNextPage: boolean; endCursor: string | null };
 };
 
-export const getContributedProjects = createServerFn({ method: "GET" }).handler(async () => {
-  const token = process.env.GITHUB_PROJECTS_TOKEN;
-  if (!token) return null;
+const login = "phonghuynh031226";
+const userAgent = "phonghuynh-portfolio";
 
-  const login = "phonghuynh031226";
+async function getRecentContributions(token: string) {
   const repositories: Repository[] = [];
   let cursor: string | null = null;
 
@@ -29,7 +28,7 @@ export const getContributedProjects = createServerFn({ method: "GET" }).handler(
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
-        "User-Agent": "phonghuynh-portfolio",
+        "User-Agent": userAgent,
       },
       body: JSON.stringify({
         query: `
@@ -81,4 +80,52 @@ export const getContributedProjects = createServerFn({ method: "GET" }).handler(
       homepage: repo.homepageUrl,
       language: repo.primaryLanguage?.name ?? null,
     }));
+}
+
+type CommitSearchRepo = {
+  full_name: string;
+  description: string | null;
+  html_url: string;
+  private: boolean;
+  owner: { login: string };
+};
+
+async function searchPublicCommitRepos() {
+  const repos = new Map<string, CommitSearchRepo>();
+  for (let page = 1; page <= 10; page++) {
+    const params = new URLSearchParams({
+      q: `author:${login} -user:${login}`,
+      per_page: "100",
+      page: String(page),
+    });
+    const response = await fetch(`https://api.github.com/search/commits?${params}`, {
+      headers: { Accept: "application/vnd.github+json", "User-Agent": userAgent },
+    });
+    if (!response.ok) return page === 1 ? null : [...repos.values()];
+
+    const result: { items: { repository: CommitSearchRepo }[]; total_count: number } =
+      await response.json();
+    for (const { repository } of result.items) {
+      if (!repository.private && repository.owner.login.toLowerCase() !== login) {
+        repos.set(repository.full_name.toLowerCase(), repository);
+      }
+    }
+    if (result.items.length < 100 || page * 100 >= result.total_count) break;
+  }
+  return [...repos.values()];
+}
+
+export const getContributedProjects = createServerFn({ method: "GET" }).handler(async () => {
+  const token = process.env.GITHUB_PROJECTS_TOKEN;
+  const recent = token ? await getRecentContributions(token).catch(() => null) : null;
+  if (recent?.length) return recent;
+
+  const repos = await searchPublicCommitRepos().catch(() => null);
+  return repos?.map((repo) => ({
+    name: repo.full_name,
+    description: repo.description,
+    html_url: repo.html_url,
+    homepage: null,
+    language: null,
+  })) ?? recent;
 });

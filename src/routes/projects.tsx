@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, Folder, Users } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -95,6 +95,7 @@ function ProjectCard({ repo, index, contributed }: { repo: GithubRepo; index: nu
 }
 
 function Projects() {
+  const [tab, setTab] = useState<"personal" | "contributed">("personal");
   const [personal, setPersonal] = useState<GithubRepo[] | null>();
   const [contributed, setContributed] = useState<GithubRepo[] | null>();
   const headerRef = useScrollReveal();
@@ -133,18 +134,34 @@ function Projects() {
         </p>
       </header>
 
-      <ProjectSection title={t("projects.personal_title")} repos={personal} />
-      <ProjectSection title={t("projects.contributed_title")} repos={contributed} contributed />
+      <div className="flex flex-wrap gap-2 animate-fade-in-up delay-200">
+        <button
+          type="button"
+          aria-pressed={tab === "personal"}
+          onClick={() => setTab("personal")}
+          className={`chip transition-all duration-200 ${tab === "personal" ? "bg-pastel-green scale-105" : "bg-card"}`}
+        >
+          <Folder className="h-3 w-3" /> {t("projects.personal_title")}
+        </button>
+        <button
+          type="button"
+          aria-pressed={tab === "contributed"}
+          onClick={() => setTab("contributed")}
+          className={`chip transition-all duration-200 ${tab === "contributed" ? "bg-pastel-blue scale-105" : "bg-card"}`}
+        >
+          <Users className="h-3 w-3" /> {t("projects.contributed_title")}
+        </button>
+      </div>
+
+      <ProjectSection key={tab} repos={tab === "personal" ? personal : contributed} contributed={tab === "contributed"} />
     </div>
   );
 }
 
 function ProjectSection({
-  title,
   repos,
   contributed = false,
 }: {
-  title: string;
   repos: GithubRepo[] | null | undefined;
   contributed?: boolean;
 }) {
@@ -152,7 +169,6 @@ function ProjectSection({
 
   return (
     <section className="space-y-4">
-      <h2 className="font-mono text-xl font-bold">{title}</h2>
       {repos === undefined && (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {Array.from({ length: 3 }).map((_, i) => (
